@@ -1,5 +1,5 @@
 # Tarea Reservas de Aulas
-## Profesor: José Ramón Jiménez Reyes
+## Profesor: Andrés Rubio del Río
 ## Alumno:
 
 El cliente nos comenta que debemos tener en cuenta los siguientes aspectos:
