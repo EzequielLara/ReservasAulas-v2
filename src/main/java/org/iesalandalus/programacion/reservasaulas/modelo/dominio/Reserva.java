@@ -56,7 +56,7 @@ public class Reserva {
     
     private void setAula(Aula aula){
         if(aula==null){
-            throw new IllegalArgumentException("La reserva se debe hacer para un aula concreta.");
+            throw new IllegalArgumentException("La reserva debe ser para un aula concreta.");
             
         }
         this.aula=new Aula(aula.getNombre(),aula.getPuestos());
@@ -113,6 +113,9 @@ public class Reserva {
         }
         final Reserva other = (Reserva) obj;
     
+        if (!Objects.equals(this.aula, other.aula)) {
+            return false;
+        }
         if (!Objects.equals(this.permanencia, other.permanencia)) {
             return false;
         }
