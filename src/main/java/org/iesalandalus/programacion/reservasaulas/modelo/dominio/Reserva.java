@@ -47,11 +47,11 @@ public class Reserva {
         if(profesor==null){
             throw new IllegalArgumentException("La reserva debe estar a nombre de un profesor.");
         }
-       this.profesor=new Profesor(profesor);
+       this.profesor=new Profesor(profesor.getNombre(),profesor.getCorreo(),profesor.getTelefono());
     }
        
     public Profesor getProfesor(){
-        return new Profesor(this.profesor);
+        return this.profesor;
     }
     
     private void setAula(Aula aula){
@@ -59,13 +59,13 @@ public class Reserva {
             throw new IllegalArgumentException("La reserva se debe hacer para un aula concreta.");
             
         }
-        this.aula=new Aula(aula);
+        this.aula=new Aula(aula.getNombre(),aula.getPuestos());
     
     }
     
     public Aula getAula(){
     
-        return new Aula(this.aula);
+        return this.aula;
     }
     
     private void setPermanencia(Permanencia permanencia){
@@ -73,21 +73,18 @@ public class Reserva {
             throw new IllegalArgumentException("La reserva se debe hacer para una permanencia concreta.");
         }
        if(permanencia instanceof PermanenciaPorTramo){
-           this.permanencia=new PermanenciaPorTramo(((PermanenciaPorTramo) permanencia));
+           this.permanencia=new PermanenciaPorTramo(((PermanenciaPorTramo) permanencia).getDia(),((PermanenciaPorTramo) permanencia).getTramo());
        }
        if(permanencia instanceof PermanenciaPorHora){
-           this.permanencia=new PermanenciaPorHora(((PermanenciaPorHora) permanencia));
-       }
+           this.permanencia=new PermanenciaPorHora(((PermanenciaPorHora) permanencia).getDia(),((PermanenciaPorHora) permanencia).getHora());
+        }
     }
     
     public Permanencia getPermanencia(){
-        if(permanencia instanceof PermanenciaPorTramo){
         
-        return new PermanenciaPorTramo((PermanenciaPorTramo) permanencia);
-        }else{
-            
-        return new PermanenciaPorHora((PermanenciaPorHora) permanencia);
-        }    
+        
+        return permanencia;
+         
     }
         
     public float getPuntos(){
@@ -115,10 +112,7 @@ public class Reserva {
             return false;
         }
         final Reserva other = (Reserva) obj;
-        
-        if (!Objects.equals(this.aula, other.aula)) {
-            return false;
-        }
+    
         if (!Objects.equals(this.permanencia, other.permanencia)) {
             return false;
         }
