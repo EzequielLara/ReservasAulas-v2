@@ -63,7 +63,7 @@ public class Aula {
     
     private void setPuestos(int puestos){
         
-        if(MIN_PUESTOS<puestos&&puestos<MAX_PUESTOS){
+        if(MIN_PUESTOS<=puestos&&puestos<=MAX_PUESTOS){
         
         this.puestos=puestos;
         }else{
