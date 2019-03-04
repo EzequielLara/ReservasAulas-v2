@@ -8,7 +8,6 @@ package org.iesalandalus.programacion.reservasaulas.modelo.dominio.permanencia;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Objects;
 
 /**
  *
@@ -26,7 +25,7 @@ public abstract class Permanencia {
         setDia(dia);
     }
     
-    public Permanencia(String dia){
+    protected Permanencia(String dia){
          setDia(dia);
     }
         
