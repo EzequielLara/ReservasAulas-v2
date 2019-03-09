@@ -80,10 +80,12 @@ public class PermanenciaPorTramo extends Permanencia {
             return false;
         }
         final PermanenciaPorTramo other = (PermanenciaPorTramo) obj;
-        if (!Objects.equals(this.tramo, other.tramo)) {
-            return false;
+        if (Objects.equals(this.tramo, other.tramo) && Objects.equals(this.dia, other.dia)) {
+
+            return true;
         }
-        return true;
+
+        return false;
     }
 
     @Override
